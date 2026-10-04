@@ -1,9 +1,11 @@
-"""Demo data. Prices are indicative starting prices in INR, hotels are fictional demo hotels."""
+"""Sample data. Prices are indicative starting prices in INR, hotels are fictional sample hotels."""
+import secrets
 from datetime import date, datetime, timedelta, timezone
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app import config
 from app.models import Driver, Hotel, Offer, Package, Place, RoomType, User, Vehicle
 from app.security import hash_password
 
@@ -114,11 +116,14 @@ def seed(db: Session) -> None:
             db.flush()
         return user
 
-    add_user("admin@tripnest.com", "MD AFFAN ANWAR", "admin", "Admin@123")
-    add_user("customer@tripnest.com", "Demo Traveller", "customer", "Customer@123")
+    if config.SEED_DEMO_LOGINS:
+        add_user("admin@tripnest.com", "MD AFFAN ANWAR", "admin", "Admin@123")
+        add_user("customer@tripnest.com", "Demo Traveller", "customer", "Customer@123")
+    # On a public deployment the seeded drivers get random passwords nobody knows, so they only serve rides.
+    driver_password = "Driver@123" if config.SEED_DEMO_LOGINS else secrets.token_urlsafe(24)
 
     for email, name, phone, city, lat, lng, cat, model, plate, color, seats, a4, p4, l4 in DRIVERS:
-        user = add_user(email, name, "driver", "Driver@123")
+        user = add_user(email, name, "driver", driver_password)
         if not db.scalar(select(Driver).where(Driver.user_id == user.id)):
             driver = Driver(
                 user_id=user.id, full_name=name, phone=phone, city=city, aadhaar_last4=a4, pan_last4=p4,
