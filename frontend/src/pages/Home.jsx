@@ -107,7 +107,7 @@ export default function Home() {
       {hotels.length > 0 && (
         <section className="section">
           <div className="section-head">
-            <div><h2>Top-rated hotels</h2><p>Demo properties with indicative prices per night.</p></div>
+            <div><h2>Top-rated hotels</h2><p>Sample listings with indicative prices per night.</p></div>
             <Link className="btn btn-outline btn-sm" to="/hotels">See all hotels</Link>
           </div>
           <div className="grid">{hotels.map((h) => <HotelCard key={h.id} hotel={h} />)}</div>

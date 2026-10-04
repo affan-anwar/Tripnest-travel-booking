@@ -51,7 +51,7 @@ export default function Hotels() {
       {error && <p className="error center">{error}</p>}
       {!loading && !error && hotels.length === 0 && <p className="center muted">No hotels match these filters.</p>}
       <section className="grid">{hotels.map((h) => <HotelCard key={h.id} hotel={h} />)}</section>
-      <p className="muted small center" style={{ marginTop: 18 }}>Demo properties with indicative prices per room per night.</p>
+      <p className="muted small center" style={{ marginTop: 18 }}>Sample listings with indicative prices per room per night.</p>
     </>
   );
 }

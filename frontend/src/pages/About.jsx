@@ -46,7 +46,7 @@ export default function About() {
 
       <div className="panel">
         <h3>Please note</h3>
-        <p className="muted">Prices are indicative and confirmed at booking. Hotels shown are demonstration properties. Document checks are an upload and manual review process, and payments and SMS are simulated in this version.</p>
+        <p className="muted">Prices are indicative and confirmed at booking. Hotel listings are sample data. Document checks are an upload and manual review process, and payment checkout is simulated until a payment gateway is connected.</p>
       </div>
     </div>
   );

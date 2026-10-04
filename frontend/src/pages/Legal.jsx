@@ -130,7 +130,7 @@ export function Terms() {
         <p>You may not misuse the service, submit false documents, interfere with other users or attempt to gain access to areas you are not permitted to use. We may suspend accounts that break these terms.</p>
       </Section>
       <Section title="Limitation of service">
-        <p>Hotels and some services are shown for demonstration, and payments and SMS messages are simulated in this version. We make reasonable efforts to keep the service available but cannot guarantee it will always be uninterrupted.</p>
+        <p>Hotel listings are sample data, and payment checkout is simulated until a payment gateway is connected. We make reasonable efforts to keep the service available but cannot guarantee it will always be uninterrupted.</p>
       </Section>
       <Section title="Changes to these terms">
         <p>We may update these terms from time to time. Continued use of TripNest means you accept the updated terms.</p>
